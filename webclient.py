@@ -2,6 +2,7 @@ import sys
 sys.path.append("./gen-py")
 
 import base64
+import urllib
 
 from flask import Flask, render_template, request
 from caffe.io import load_image, resize_image
@@ -16,19 +17,20 @@ from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
 
-app = Flask(__name__)
+asu = Flask(__name__)
 
 
-@app.route('/')
+@asu.route('/')
 def home():
     return render_template('index.html')
 
 
-@app.route('/classify', methods=['POST'])
+@asu.route('/classify', methods=['POST'])
 def classify():
     file = request.files['file']
+
     if file:
-        file.save('upload')
+	file.save('upload')
         orig_img = load_image('upload', color=False)
         img = preprocess_image(orig_img)
         ret = send_image(img)
@@ -67,4 +69,4 @@ def send_image(img):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    asu.run(debug=True)

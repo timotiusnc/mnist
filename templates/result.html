@@ -18,11 +18,15 @@
                     </div>
                     <div class="col s8">
                         <div class="progress" style="height: 25px; line-height: 27px; max-width: 250px;">
-                            <div class="determinate" style="width: {{ p|int }}%;">&nbsp;&nbsp;&nbsp;{{ '%0.6f'| format(p|float) }}</div>
+                            <div class="determinate" style="width: {{ p|int }}%;">&nbsp;&nbsp;&nbsp;{{ '%0.6f'| format(p|float) }}%</div>
                         </div>
                     </div>
                 {% endfor %}
             </div>
+
+	    <div class="row center-align">
+	       <a href="/" class="waves-effect waves-light btn">back</a>
+	    </div>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>

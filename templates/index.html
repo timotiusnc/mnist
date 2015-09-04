@@ -2,18 +2,33 @@
 
     <head>
         <title>MNIST</title>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
     </head>
 
     <body>
-        <div class="row center-align" style="margin-top: 128px;">
-            <form name="mnist" action="/classify" method="POST" enctype="multipart/form-data">
-                <div style="margin-bottom: 32px;"><input type="file" name="file"></div>
-                <div><input type="submit"></div>
+	<div class="container">
+        <div class="row" style="margin-top: 128px;">
+            <form name="mnist" action="/classify" method="POST" enctype="multipart/form-data" class="center-align">
+                <div style="margin-bottom: 32px;">
+		    <input type="file" name="file">
+		</div>
+
+		<!--<p>
+		  <input id="test-four" name="fileselect" type="radio" value="http://people.cs.uchicago.edu/~dinoj/vis/digits/digit4.jpg"/>
+	      	  <label for="test-four">Red</label>
+    		</p>
+
+		<p>
+                  <input id="test-five" name="fileselect" type="radio" value="http://people.cs.uchicago.edu/~dinoj/vis/digits/digit5.jpg"/>
+                  <label for="test-five">Green</label>
+                </p>-->
+
+                <input type="submit">
             </form>
         </div>
+	</div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
     </body>
 
