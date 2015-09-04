@@ -20,13 +20,9 @@ class MNISTServer:
 		self.lenet = LeNet()
 
 	def predict(self, image):
-		preprocessed_image = preprocess(image)
-		pmf = self.lenet.predict(preprocess_image)
-		return [Prediction(digit=digit, probability=probability) for digit, probability in pmf]
-
-	def preprocess(self, image):
 		preprocessed_image = np.array(image, dtype='float32')
-		return preprocessed_image
+		pmf = self.lenet.predict(preprocessed_image)
+		return [Prediction(digit=digit, probability=probability) for digit, probability in pmf]
 
 def main():
 	processor = MNIST.Processor(MNISTServer())
