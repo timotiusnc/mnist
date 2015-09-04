@@ -1,0 +1,31 @@
+<html>
+
+    <head>
+        <title>MNIST</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row center-align" style="margin-top: 128px;">
+                <img src="data:image/jpeg;base64,{{ img }}" style="height: 128px;">
+            </div>
+            <div class="row" style="margin-top: 48px;">
+                {% for r in result %}
+                    {% set p = (r.probability * 100) %}
+                    <div class="col s4 right-align" style="line-height: 39px;">
+                        {{ r.digit|int }}
+                    </div>
+                    <div class="col s8">
+                        <div class="progress" style="height: 25px; line-height: 27px; max-width: 250px;">
+                            <div class="determinate" style="width: {{ p|int }}%;">&nbsp;&nbsp;&nbsp;{{ '%0.6f'| format(p|float) }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+    </body>
+
+</html>

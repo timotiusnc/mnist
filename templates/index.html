@@ -1,0 +1,19 @@
+<html>
+
+    <head>
+        <title>MNIST</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    </head>
+
+    <body>
+        <div class="row center-align" style="margin-top: 128px;">
+            <form name="mnist" action="/classify" method="POST" enctype="multipart/form-data">
+                <div style="margin-bottom: 32px;"><input type="file" name="file"></div>
+                <div><input type="submit"></div>
+            </form>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+    </body>
+
+</html>
