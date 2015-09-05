@@ -16,6 +16,8 @@ from thrift.transport import TSocket
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol
 
+from StringIO import StringIO
+
 
 asu = Flask(__name__)
 
@@ -30,11 +32,11 @@ def classify():
     file = request.files['file']
 
     if file:
-	file.save('upload')
-        orig_img = load_image('upload', color=False)
+        img_data = file.read()
+        orig_img = load_image(StringIO(img_data), color=False)
         img = preprocess_image(orig_img)
         ret = send_image(img)
-        return render_template('result.html', result=ret, img=base64.b64encode(open('upload', 'r').read()))
+        return render_template('result.html', result=ret, img=base64.b64encode(img_data))
     return 'Upload failed!'
 
 
